@@ -1,38 +1,129 @@
-# frontend
+# RideOn – Bike Rental Website
 
-This template should help get you started developing with Vue 3 in Vite.
+RideOn is a bike rental web application that allows users to explore available bikes, make bookings, manage their reservations, and complete test payments through Razorpay. It also includes an admin dashboard for managing bikes, bookings, and users.
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- User registration and login
+- Browse bikes and view bike details
+- Search and filter bikes by location and category
+- Select pickup and drop-off locations
+- Choose rental dates and view booking amounts
+- Make test payments using Razorpay
+- View and cancel personal bookings
+- Admin dashboard with booking, bike, and user management
+- MongoDB Atlas database integration
 
-## Recommended Browser Setup
+## Technology Stack
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+**Frontend**
+- Vue.js 3
+- JavaScript
+- HTML and CSS
+- Vite
 
-## Customize configuration
+**Backend**
+- Node.js
+- Express.js
+- MongoDB Atlas and Mongoose
+- JWT authentication
+- bcryptjs for password hashing
+- Razorpay test-mode integration
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Project Structure
 
-## Project Setup
+```text
+Rideon/
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── seed.js
+│   └── server.js
+├── frontend/
+│   ├── public/
+│   └── src/
+│       ├── components/
+│       ├── router/
+│       └── views/
+└── .gitignore
+```
 
-```sh
+## Getting Started
+
+### Prerequisites
+
+- Node.js and npm
+- MongoDB Atlas account
+- Razorpay test-mode account for payment testing
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/deepanshi-yadav/Rideon.git
+cd Rideon
+```
+
+### 2. Configure the backend
+
+```bash
+cd backend
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Create a `backend/.env` file with your own configuration:
 
-```sh
+```env
+MONGO_URI=your_mongodb_connection_string
+PORT=4000
+JWT_SECRET=your_private_jwt_secret
+RAZORPAY_KEY_ID=your_razorpay_test_key_id
+RAZORPAY_KEY_SECRET=your_razorpay_test_key_secret
+```
+
+Start the backend using the command configured in your backend `package.json`, or use:
+
+```bash
+node server.js
+```
+
+### 3. Configure the frontend
+
+Open another terminal:
+
+```bash
+cd frontend
+npm install
+```
+
+Create `frontend/.env` and configure the public Razorpay test key if required by the frontend:
+
+```env
+VITE_RAZORPAY_KEY_ID=your_razorpay_test_key_id
+```
+
+Start the frontend:
+
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+Open the local URL displayed by Vite in your terminal.
 
-```sh
-npm run build
-```
+## Payment Note
+
+Razorpay is configured for testing. Test payments do not represent real transactions.
+
+## Security
+
+- Keep `.env` files and secret keys private.
+- Never commit database credentials or payment secrets to GitHub.
+- Use test credentials when testing payment functionality.
+
+## Author
+
+**Deepanshi Yadav**
+
+GitHub: [deepanshi-yadav](https://github.com/deepanshi-yadav)
